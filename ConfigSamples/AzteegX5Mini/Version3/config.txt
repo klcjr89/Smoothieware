@@ -6,7 +6,7 @@
 default_feed_rate                            4000             # Default speed (mm/minute) for G1/G2/G3 moves
 default_seek_rate                            4000             # Default speed (mm/minute) for G0 moves
 mm_per_arc_segment                           0.0              # Fixed length for line segments that divide arcs, 0 to disable
-mm_per_line_segment                         1                # Cut lines into segments this size
+#mm_per_line_segment                         1                # Cut lines into segments this size
 mm_max_arc_error                             0.01             # The maximum error for line segments that divide arcs 0 to disable
                                                               # note it is invalid for both the above be 0
                                                               # if both are used, will use largest segment length based on radius
@@ -20,7 +20,7 @@ gamma_steps_per_mm                           1600             # Steps per mm for
 # Planner module configuration : Look-ahead and acceleration configuration
 # See http://smoothieware.org/motion-control
 acceleration                                 3000             # Acceleration in mm/second/second.
-#z_acceleration                              500              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
+#z_acceleration                              10              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default. DO NOT SET ON A DELTA
 junction_deviation                           0.05             # See http://smoothieware.org/motion-control#junction-deviation
 #z_junction_deviation                        0.0              # For Z only moves, -1 uses junction_deviation, zero disables junction_deviation on z moves DO NOT SET ON A DELTA
 
@@ -132,9 +132,9 @@ temperature_control.hotend.designator        T                # Designator lette
 
 # PID configuration 
 # See http://smoothieware.org/temperaturecontrol#pid
-temperature_control.hotend.p_factor         31.0             # P ( proportional ) factor
-temperature_control.hotend.i_factor         1.771            # I ( integral ) factor
-temperature_control.hotend.d_factor         136.0               # D ( derivative ) factor
+temperature_control.hotend.p_factor         22.367             # P ( proportional ) factor
+temperature_control.hotend.i_factor         1.383            # I ( integral ) factor
+temperature_control.hotend.d_factor         90.446               # D ( derivative ) factor
 
 #temperature_control.hotend.max_pwm          64               # Max pwm, 64 is a good value if driving a 12v resistor with 24v.
 
@@ -148,9 +148,9 @@ temperature_control.hotend.d_factor         136.0               # D ( derivative
 #temperature_control.hotend2.set_and_wait_m_code 109          # M-code to set-and-wait for this module
 #temperature_control.hotend2.designator        T1             # Designator letter for this module
 
-#temperature_control.hotend2.p_factor          13.7           # P ( proportional ) factor
-#temperature_control.hotend2.i_factor          0.097          # I ( integral ) factor
-#temperature_control.hotend2.d_factor          24             # D ( derivative ) factor
+#temperature_control.hotend2.p_factor          0.0           # P ( proportional ) factor
+#temperature_control.hotend2.i_factor          0.0          # I ( integral ) factor
+#temperature_control.hotend2.d_factor          0.0             # D ( derivative ) factor
 
 #temperature_control.hotend2.max_pwm          64              # Max pwm, 64 is a good value if driving a 12v resistor with 24v.
 
@@ -162,9 +162,9 @@ temperature_control.bed.beta                3950             # Or set the beta v
 temperature_control.bed.set_m_code           140              # M-code to set the temperature for this module
 temperature_control.bed.set_and_wait_m_code  190              # M-code to set-and-wait for this module
 temperature_control.bed.designator           B                # Designator letter for this module
-temperature_control.bed.p_factor             176.4
-temperature_control.bed.i_factor             14.732
-temperature_control.bed.d_factor             528.0
+temperature_control.bed.p_factor			174.433
+temperature_control.bed.i_factor			15.201
+temperature_control.bed.d_factor			500.406
 
 # Bang-bang ( simplified ) control
 # See http://smoothieware.org/temperaturecontrol#bang-bang
@@ -234,7 +234,7 @@ alpha_slow_homing_rate_mm_s                  25               # Alpha/X slow hom
 beta_fast_homing_rate_mm_s                   50               # Beta/Y  fast homing feedrate in mm/second
 beta_slow_homing_rate_mm_s                   25               # Beta/Y  slow homing feedrate in mm/second
 gamma_fast_homing_rate_mm_s                  25                # Gamma/Z fast homing feedrate in mm/second
-gamma_slow_homing_rate_mm_s                  10                # Gamma/Z slow homing feedrate in mm/second
+gamma_slow_homing_rate_mm_s                  5                # Gamma/Z slow homing feedrate in mm/second
 
 alpha_homing_retract_mm                      5                # Distance to retract from the endstop after it is hit for alpha/X
 beta_homing_retract_mm                       5                # Distance to retract from the endstop after it is hit for beta/Y
@@ -251,7 +251,7 @@ gamma_homing_retract_mm                      5                # Distance to retr
 #homing_order                                 XYZ              # X axis followed by Y then Z last
 #move_to_origin_after_home                    false            # Move XY to 0,0 after homing
 #endstop_debounce_count                       100              # Uncomment if you get noise on your endstops, default is 100
-#endstop_debounce_ms                           1                # Uncomment if you get noise on your endstops, default is 1 millisecond debounce
+endstop_debounce_ms                           1                # Uncomment if you get noise on your endstops, default is 1 millisecond debounce
 #home_z_first                                 true             # Uncomment and set to true to home the Z first, otherwise Z homes after XY
 
 # End of endstop config
@@ -261,27 +261,12 @@ gamma_homing_retract_mm                      5                # Distance to retr
 ## Z-probe
 # See http://smoothieware.org/zprobe
 zprobe.enable                                true           # Set to true to enable a zprobe
-zprobe.probe_pin                             1.29^          # Pin probe is attached to, if NC remove the !
-zprobe.slow_feedrate                         10               # Mm/sec probe feed rate
-zprobe.debounce_ms                           100             # Set if noisy
+zprobe.probe_pin                             1.28^          # Pin probe is attached to, if NC remove the !
+zprobe.slow_feedrate                         25               # Mm/sec probe feed rate
+zprobe.debounce_ms                           1             # Set if noisy
 zprobe.fast_feedrate                         25             # Move feedrate mm/sec
 zprobe.probe_height                          5               # How much above bed to start probe
-#gamma_min_endstop                           nc              # Normally 1.28. Change to nc to prevent conflict,
-
-## Leveling strategy
-leveling-strategy.three-point-leveling.enable       true            # Set to true to enable the leveling strategy that probes three points to define
-# a plane and then keeps the Z parallel to that plane. This is useful if
-# your Z plate/bed is not perfectly aligned with your XY gantry
-leveling-strategy.three-point-leveling.point1        0.0,0.0      # The first probe point (X, Y)
-leveling-strategy.three-point-leveling.point2        300.0,0.0    # The second probe point (X, Y)
-leveling-strategy.three-point-leveling.point3        300.0,300.0      # The third probe point (X, Y)
-leveling-strategy.three-point-leveling.home_first    false           # Home the X and Y axes before probing
-leveling-strategy.three-point-leveling.tolerance     0.03           # The probe tolerance in millimetres, anything less that this will be
-																	# ignored, default is 0.03mm
-leveling-strategy.three-point-leveling.probe_offsets 0,0,0          # The probe offset from nozzle, must be X,Y,Z (Z should always be 0),
-																	# default is no offset. This is used if your nozzle is not exactly
-																	# at the same position as where your tool would be.
-leveling-strategy.three-point-leveling.save_plane    true          # Set to true to allow the bed plane to be saved with M500, default is false
+#gamma_min_endstop                           nc              # Normally 1.28. Change to nc to prevent conflict
 
 ## Panel
 # See http://smoothieware.org/panel
@@ -333,6 +318,10 @@ leave_heaters_on_suspend true # set to false if you want the heaters turned off 
 custom_menu.filament_extrude.enable               true                                                   #
 custom_menu.filament_extrude.name                 Extrude_10mm                                       #
 custom_menu.filament_extrude.command              G92_E0|G1_E10_F300|G92_E0   #
+
+custom_menu.reset.enable               true                                                   #
+custom_menu.reset.name                 Reset                                       #
+custom_menu.reset.command              reset   #
 
 
 ## Network settings

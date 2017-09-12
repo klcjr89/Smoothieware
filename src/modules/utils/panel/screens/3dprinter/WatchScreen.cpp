@@ -284,14 +284,9 @@ const char *WatchScreen::get_status()
         return THEPANEL->get_playing_file();
 
     if (!THECONVEYOR->is_idle())
-        return "Printing";
+        return THEPANEL->getMessage().c_str();
 
-    const char *ip = get_network();
-    if (ip == NULL) {
-        return "Smoothie ready";
-    } else {
-        return ip;
-    }
+    return "";
 }
 
 void WatchScreen::set_speed()
