@@ -137,7 +137,7 @@ beta_min_endstop                             1.26^           # Pin to read min e
 beta_homing_direction                        home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 beta_min                                     0               # This gets loaded as the current position after homing when home_to_min is set
 
-gamma_min_endstop                            1.28!^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
+gamma_min_endstop                            1.28!^          # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 gamma_homing_direction                       home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 gamma_min                                    0               # This gets loaded as the current position after homing when home_to_min is set
 gamma_max                                    200             # This gets loaded as the current position after homing when home_to_max is set
@@ -187,7 +187,7 @@ leveling-strategy.rectangular-grid.human_readable      true
 leveling-strategy.rectangular-grid.x_size              300
 leveling-strategy.rectangular-grid.y_size              300
 leveling-strategy.rectangular-grid.size                15
-leveling-strategy.rectangular-grid.probe_offsets       0,0,0    # Probe offsets for X,Y,Z  (Z should always be 0)
+leveling-strategy.rectangular-grid.probe_offsets       0,0,0   # Probe offsets for X,Y,Z  (Z should always be 0)
 leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
 
 # LCD panel
