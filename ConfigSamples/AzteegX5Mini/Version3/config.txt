@@ -59,9 +59,9 @@ gamma_max_rate                               3000            # Maximum rate in m
 # Extruder configuration
 
 extruder.hotend.enable                          true
-extruder.hotend.steps_per_mm                    360          # Steps per mm for the extruder stepper
+extruder.hotend.steps_per_mm                    2400         # Steps per mm for the extruder stepper
 extruder.hotend.default_feed_rate               600          # Default rate (mm/min) for moves where only the extruder moves
-extruder.hotend.acceleration                    3000         # Acceleration for the stepper motor mm/s^2
+extruder.hotend.acceleration                    120          # Acceleration for the stepper motor mm/s^2
 extruder.hotend.max_speed                       100          # Maximum speed in mm/s
 
 extruder.hotend.step_pin                        2.0          # Pin for extruder step signal
@@ -70,14 +70,14 @@ extruder.hotend.en_pin                          0.4          # Pin for extruder 
 
 # Firmware retraction - these are the defaults if not defined, must be defined for each extruder if not using the defaults
 
-extruder.hotend.retract_length                  3.5          # Retract length in mm
-extruder.hotend.retract_feedrate                60           # Retract feedrate in mm/sec
+extruder.hotend.retract_length                  0.80         # Retract length in mm
+extruder.hotend.retract_feedrate                30           # Retract feedrate in mm/sec
 extruder.hotend.retract_recover_length          0            # Additional length for recover
-extruder.hotend.retract_recover_feedrate        60           # Recover feedrate in mm/sec (should be less than retract feedrate)
-extruder.hotend.retract_zlift_length            0.1          # Z-lift on retract in mm, 0 disables
+extruder.hotend.retract_recover_feedrate        30           # Recover feedrate in mm/sec (should be less than retract feedrate)
+extruder.hotend.retract_zlift_length            0.0          # Z-lift on retract in mm, 0 disables
 extruder.hotend.retract_zlift_feedrate          3000         # Z-lift feedrate in mm/min
 
-delta_current                                   1.85         # Extruder stepper motor current
+delta_current                                   0.5          # Extruder stepper motor current
 
 
 # Temperature control
@@ -137,7 +137,7 @@ beta_min_endstop                             1.26^           # Pin to read min e
 beta_homing_direction                        home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 beta_min                                     0               # This gets loaded as the current position after homing when home_to_min is set
 
-gamma_min_endstop                            1.28^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
+gamma_min_endstop                            1.28!^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 gamma_homing_direction                       home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 gamma_min                                    0               # This gets loaded as the current position after homing when home_to_min is set
 gamma_max                                    200             # This gets loaded as the current position after homing when home_to_max is set
@@ -157,7 +157,7 @@ beta_slow_homing_rate_mm_s                   25              # Beta/Y  slow homi
 beta_homing_retract_mm                       5               # Distance to retract from the endstop after it is hit for beta/Y
 
 gamma_fast_homing_rate_mm_s                  25              # Gamma/Z fast homing feedrate in mm/sec
-gamma_slow_homing_rate_mm_s                  20              # Gamma/Z slow homing feedrate in mm/sec
+gamma_slow_homing_rate_mm_s                  1               # Gamma/Z slow homing feedrate in mm/sec
 gamma_homing_retract_mm                      5               # Distance to retract from the endstop after it is hit for gamma/Z
 
 
@@ -171,8 +171,8 @@ endstop_debounce_ms                          1               # Uncomment if you 
 # Z probe
 
 zprobe.enable                                true
-zprobe.probe_pin                             1.28^
-zprobe.slow_feedrate                         20              # Probe feed rate in mm/sec
+zprobe.probe_pin                             1.28!^
+zprobe.slow_feedrate                         1               # Probe feed rate in mm/sec
 zprobe.debounce_ms                           1               # Set if noisy
 zprobe.fast_feedrate                         50              # X and Y axes feedrate in mm/sec
 zprobe.probe_height                          5               # How far above the bed to start probing
@@ -188,8 +188,7 @@ leveling-strategy.rectangular-grid.x_size              300
 leveling-strategy.rectangular-grid.y_size              300
 leveling-strategy.rectangular-grid.size                15
 leveling-strategy.rectangular-grid.probe_offsets       0,0,0    # Probe offsets for X,Y,Z  (Z should always be 0)
-leveling-strategy.rectangular-grid.initial_height      10       # Move to Z10 before the first probe
-
+leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
 
 # LCD panel
 
@@ -215,7 +214,7 @@ panel.bed_temperature                       70      # Temperature to set bed whe
 
 
 # Custom menus
-# Note: The _ character gets converted to a space in the menu and commands, | is used to separate multiple commands
+# Note: The '_' character gets converted to a space in the menu and commands, | is used to separate multiple commands
 
 custom_menu.filament_change.enable          true
 custom_menu.filament_change.name            Change_Filament
