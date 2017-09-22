@@ -122,7 +122,7 @@ switch.fan.input_on_command                  M106            # Command that will
 switch.fan.input_off_command                 M107            # Command that will turn this switch off
 switch.fan.output_pin                        1.25            # Pin this module controls
 switch.fan.output_type                       pwm             # PWM output settable with S parameter in the input_on_comand
-switch.fan.max_pwm                           64              # Set max pwm for the pin, default is 255, 64 for 12V fan on 24V PSU
+switch.fan.max_pwm                           64              # Set max pwm for the pin. Default is 255, 64 for 12V fan on 24V PSU
 
 
 # Endstops
