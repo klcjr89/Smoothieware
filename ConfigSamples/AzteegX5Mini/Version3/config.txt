@@ -8,7 +8,7 @@
 default_feed_rate                            4000            # Default speed in mm/min for G1/G2/G3 moves
 default_seek_rate                            4000            # Default speed in mm/min for G0 moves
 mm_per_arc_segment                           0               # Fixed length for line segments that divide arcs, 0 to disable
-mm_per_line_segment                          1               # Cut lines into segments of this size
+mm_per_line_segment                          0               # Cut lines into segments of this size
 mm_max_arc_error                             0.01            # The maximum error for line segments that divide arcs, 0 to disable
 															 # Note: it is invalid for both of the above to be set to 0
 															 # if both are used, will use largest segment length based on radius
@@ -59,7 +59,7 @@ gamma_max_rate                               3000            # Maximum rate in m
 # Extruder configuration
 
 extruder.hotend.enable                          true
-extruder.hotend.steps_per_mm                    2400         # Steps per mm for the extruder stepper
+extruder.hotend.steps_per_mm                    2600         # Steps per mm for the extruder stepper
 extruder.hotend.default_feed_rate               600          # Default rate (mm/min) for moves where only the extruder moves
 extruder.hotend.acceleration                    120          # Acceleration for the stepper motor mm/s^2
 extruder.hotend.max_speed                       100          # Maximum speed in mm/s
@@ -82,12 +82,15 @@ delta_current                                   0.5          # Extruder stepper 
 
 # Temperature control
 
+temperature_control.module_name.runaway_heating_timeout      4088     # Max is 4088 seconds
+temperature_control.module_name.runaway_range                63       # Max is 63°C
+
 # Hotend configuration
 
 temperature_control.hotend.enable              true
+temperature_control.hotend.thermistor          Semitec
 temperature_control.hotend.thermistor_pin      0.24          # Pin for the thermistor to read
-temperature_control.hotend.heater_pin          2.5           # Pin that controls the heater, set to nc if a readonly thermistor is being defined
-temperature_control.hotend.thermistor          Semitec       # See http://smoothieware.org/temperaturecontrol#toc5
+temperature_control.hotend.heater_pin          2.5           # Pin that controls the heater
 temperature_control.hotend.set_m_code          104           # M-code to set the temperature for this module
 temperature_control.hotend.set_and_wait_m_code 109           # M-code to set-and-wait for this module
 temperature_control.hotend.designator          T             # Designator letter for this module
@@ -103,12 +106,11 @@ temperature_control.hotend.d_factor         90.446
 temperature_control.bed.enable                 true
 temperature_control.bed.thermistor_pin         0.23          # Pin for the thermistor to read
 temperature_control.bed.heater_pin             2.7           # Pin that controls the heater
-temperature_control.bed.beta                   3950          # Beta value for a MGB18-104F39050L32 generic thermistor
 temperature_control.bed.set_m_code             140           # M-code to set the temperature for this module
 temperature_control.bed.set_and_wait_m_code    190           # M-code to set-and-wait for this module
 temperature_control.bed.designator             B             # Designator letter for this module
 
-# Keenovo 120V 750W silicone heater into 1/4" Mic-6 Aluminum
+temperature_control.bed.beta                3950
 
 temperature_control.bed.p_factor			174.433
 temperature_control.bed.i_factor			15.201
@@ -122,7 +124,7 @@ switch.fan.input_on_command                  M106            # Command that will
 switch.fan.input_off_command                 M107            # Command that will turn this switch off
 switch.fan.output_pin                        1.25            # Pin this module controls
 switch.fan.output_type                       pwm             # PWM output settable with S parameter in the input_on_comand
-switch.fan.max_pwm                           64              # Set max PWM for the pin. Default is 255, 64 for 12V fan on 24V PSU
+switch.fan.max_pwm                           64              # Set max pwm for the pin default is 255, 64 for 12V fan on 24V PSU
 
 
 # Endstops
@@ -156,9 +158,9 @@ beta_fast_homing_rate_mm_s                   50              # Beta/Y  fast homi
 beta_slow_homing_rate_mm_s                   25              # Beta/Y  slow homing feedrate in mm/sec
 beta_homing_retract_mm                       5               # Distance to retract from the endstop after it is hit for beta/Y
 
-gamma_fast_homing_rate_mm_s                  25              # Gamma/Z fast homing feedrate in mm/sec
+gamma_fast_homing_rate_mm_s                  10              # Gamma/Z fast homing feedrate in mm/sec
 gamma_slow_homing_rate_mm_s                  1               # Gamma/Z slow homing feedrate in mm/sec
-gamma_homing_retract_mm                      5               # Distance to retract from the endstop after it is hit for gamma/Z
+gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
 
 # Optional order in which axes will home, default is they all home at the same time
@@ -175,20 +177,20 @@ zprobe.probe_pin                             1.28!^
 zprobe.slow_feedrate                         1               # Probe feed rate in mm/sec
 zprobe.debounce_ms                           1               # Set if noisy
 zprobe.fast_feedrate                         50              # X and Y axes feedrate in mm/sec
-zprobe.probe_height                          5               # How far above the bed to start probing
+zprobe.probe_height                          2               # How far above the bed to start probing
 
 
 # Leveling strategy
 
-leveling-strategy.rectangular-grid.enable              true
-leveling-strategy.rectangular-grid.do_home             true
-leveling-strategy.rectangular-grid.save                true
-leveling-strategy.rectangular-grid.human_readable      true
-leveling-strategy.rectangular-grid.x_size              300
-leveling-strategy.rectangular-grid.y_size              300
-leveling-strategy.rectangular-grid.size                15
-leveling-strategy.rectangular-grid.probe_offsets       0,0,0   # Probe offsets for X,Y,Z  (Z should always be 0)
-leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
+#leveling-strategy.rectangular-grid.enable              true
+#leveling-strategy.rectangular-grid.do_home             true
+#leveling-strategy.rectangular-grid.save                true
+#leveling-strategy.rectangular-grid.human_readable      true
+#leveling-strategy.rectangular-grid.x_size              300
+#leveling-strategy.rectangular-grid.y_size              300
+#leveling-strategy.rectangular-grid.size                15
+#leveling-strategy.rectangular-grid.probe_offsets       0,0,0    # Probe offsets for X,Y,Z  (Z should always be 0)
+#leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
 
 # LCD panel
 
