@@ -5,6 +5,8 @@
 
 # Basic motion configuration
 
+base_stepping_frequency                      120000
+
 default_feed_rate                            4000            # Default speed in mm/min for G1/G2/G3 moves
 default_seek_rate                            4000            # Default speed in mm/min for G0 moves
 mm_per_arc_segment                           0               # Fixed length for line segments that divide arcs, 0 to disable
@@ -65,7 +67,7 @@ extruder.hotend.acceleration                    120          # Acceleration for 
 extruder.hotend.max_speed                       100          # Maximum speed in mm/s
 
 extruder.hotend.step_pin                        2.0          # Pin for extruder step signal
-extruder.hotend.dir_pin                         0.5          # Pin for extruder dir signal ( add '!' to reverse direction )
+extruder.hotend.dir_pin                         0.5!          # Pin for extruder dir signal ( add '!' to reverse direction )
 extruder.hotend.en_pin                          0.4          # Pin for extruder enable signal
 
 # Firmware retraction - these are the defaults if not defined, must be defined for each extruder if not using the defaults
@@ -88,9 +90,9 @@ temperature_control.module_name.runaway_range                63       # Max is 6
 # Hotend configuration
 
 temperature_control.hotend.enable              true
-temperature_control.hotend.thermistor          Semitec
-temperature_control.hotend.thermistor_pin      0.24          # Pin for the thermistor to read
-temperature_control.hotend.heater_pin          2.5           # Pin that controls the heater
+temperature_control.hotend.sensor              pt100_e3d
+temperature_control.hotend.e3d_amplifier_pin   1.30
+temperature_control.hotend.heater_pin          2.5           # Pin for the thermistor to read
 temperature_control.hotend.set_m_code          104           # M-code to set the temperature for this module
 temperature_control.hotend.set_and_wait_m_code 109           # M-code to set-and-wait for this module
 temperature_control.hotend.designator          T             # Designator letter for this module
@@ -124,7 +126,6 @@ switch.fan.input_on_command                  M106            # Command that will
 switch.fan.input_off_command                 M107            # Command that will turn this switch off
 switch.fan.output_pin                        1.25            # Pin this module controls
 switch.fan.output_type                       pwm             # PWM output settable with S parameter in the input_on_comand
-switch.fan.max_pwm                           64              # Set max pwm for the pin default is 255, 64 for 12V fan on 24V PSU
 
 
 # Endstops
@@ -232,6 +233,10 @@ leave_heaters_on_suspend                    true
 custom_menu.filament_extrude.enable         true
 custom_menu.filament_extrude.name           Extrude_10mm
 custom_menu.filament_extrude.command        G92_E0|G1_E10_F300|G92_E0
+
+custom_menu.save.enable                     true
+custom_menu.save.name                       Save_to_EEPROM
+custom_menu.save.command                    M500
 
 custom_menu.reset.enable                    true
 custom_menu.reset.name                      Reset
