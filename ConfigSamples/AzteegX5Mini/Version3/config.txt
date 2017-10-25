@@ -25,7 +25,7 @@ gamma_steps_per_mm                           1600            # Steps per mm for 
 # Planner configuration : Look-ahead and acceleration configuration
 
 acceleration                                 3000            # Acceleration in mm/s^2
-junction_deviation                           0.05            # See http://smoothieware.org/motion-control#junction-deviation
+junction_deviation                           0.001           # See http://smoothieware.org/motion-control#junction-deviation
 #z_acceleration                              10              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default
 #z_junction_deviation                        0.0             # For Z only moves, -1 uses junction_deviation, zero disables junction_deviation on Z only moves
 
@@ -63,16 +63,16 @@ gamma_max_rate                               3000            # Maximum rate in m
 extruder.hotend.enable                          true
 extruder.hotend.steps_per_mm                    2600         # Steps per mm for the extruder stepper
 extruder.hotend.default_feed_rate               600          # Default rate (mm/min) for moves where only the extruder moves
-extruder.hotend.acceleration                    120          # Acceleration for the stepper motor mm/s^2
+extruder.hotend.acceleration                    500          # Acceleration for the stepper motor mm/s^2
 extruder.hotend.max_speed                       100          # Maximum speed in mm/s
 
 extruder.hotend.step_pin                        2.0          # Pin for extruder step signal
-extruder.hotend.dir_pin                         0.5!          # Pin for extruder dir signal ( add '!' to reverse direction )
+extruder.hotend.dir_pin                         0.5!         # Pin for extruder dir signal ( add '!' to reverse direction )
 extruder.hotend.en_pin                          0.4          # Pin for extruder enable signal
 
 # Firmware retraction - these are the defaults if not defined, must be defined for each extruder if not using the defaults
 
-extruder.hotend.retract_length                  0.80         # Retract length in mm
+extruder.hotend.retract_length                  0.00         # Retract length in mm
 extruder.hotend.retract_feedrate                30           # Retract feedrate in mm/sec
 extruder.hotend.retract_recover_length          0            # Additional length for recover
 extruder.hotend.retract_recover_feedrate        30           # Recover feedrate in mm/sec (should be less than retract feedrate)
@@ -99,9 +99,9 @@ temperature_control.hotend.designator          T             # Designator letter
 
 # E3D-v6 with 24V 40W heater into copper heater block
 
-temperature_control.hotend.p_factor         22.367
-temperature_control.hotend.i_factor         1.383
-temperature_control.hotend.d_factor         90.446
+temperature_control.hotend.p_factor         35.8497
+temperature_control.hotend.i_factor         2.3431
+temperature_control.hotend.d_factor         137.1251
 
 # Heated bed configuration
 
@@ -114,9 +114,9 @@ temperature_control.bed.designator             B             # Designator letter
 
 temperature_control.bed.beta                3950
 
-temperature_control.bed.p_factor			174.433
-temperature_control.bed.i_factor			15.201
-temperature_control.bed.d_factor			500.406
+temperature_control.bed.p_factor			167.9245
+temperature_control.bed.i_factor			14.0523
+temperature_control.bed.d_factor			501.6743
 
 
 # Switch modules
@@ -190,7 +190,7 @@ zprobe.probe_height                          2               # How far above the
 #leveling-strategy.rectangular-grid.x_size              300
 #leveling-strategy.rectangular-grid.y_size              300
 #leveling-strategy.rectangular-grid.size                15
-#leveling-strategy.rectangular-grid.probe_offsets       0,0,0    # Probe offsets for X,Y,Z  (Z should always be 0)
+#leveling-strategy.rectangular-grid.probe_offsets       0,0,0   # Probe offsets for X,Y,Z  (Z should always be 0)
 #leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
 
 # LCD panel
