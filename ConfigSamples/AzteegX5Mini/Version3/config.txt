@@ -42,13 +42,13 @@ z_axis_max_speed                             3000            # Maximum speed in 
 alpha_step_pin                               2.1             # Pin for alpha stepper step signal
 alpha_dir_pin                                0.11!           # Pin for alpha stepper direction, add '!' to reverse the direction
 alpha_en_pin                                 0.10            # Pin for alpha enable pin
-alpha_current                                1.68            # X stepper motor current
+alpha_current                                1.8             # X stepper motor current
 alpha_max_rate                               7200            # Maximum rate in mm/min
 
 beta_step_pin                                2.2             # Pin for beta stepper step signal
 beta_dir_pin                                 0.20!           # Pin for beta stepper direction, add '!' to reverse the direction
 beta_en_pin                                  0.19            # Pin for beta enable
-beta_current                                 1.68            # Y stepper motor current
+beta_current                                 1.8             # Y stepper motor current
 beta_max_rate                                7200            # Maxmimum rate in mm/min
 
 gamma_step_pin                               2.3             # Pin for gamma stepper step signal
@@ -60,6 +60,8 @@ gamma_max_rate                               3000            # Maximum rate in m
 
 # Extruder configuration
 
+delta_current                                   0.5          # Extruder stepper motor current
+
 extruder.hotend.enable                          true
 extruder.hotend.steps_per_mm                    2600         # Steps per mm for the extruder stepper
 extruder.hotend.default_feed_rate               600          # Default rate (mm/min) for moves where only the extruder moves
@@ -69,17 +71,6 @@ extruder.hotend.max_speed                       100          # Maximum speed in 
 extruder.hotend.step_pin                        2.0          # Pin for extruder step signal
 extruder.hotend.dir_pin                         0.5!         # Pin for extruder dir signal ( add '!' to reverse direction )
 extruder.hotend.en_pin                          0.4          # Pin for extruder enable signal
-
-# Firmware retraction - these are the defaults if not defined, must be defined for each extruder if not using the defaults
-
-extruder.hotend.retract_length                  0.00         # Retract length in mm
-extruder.hotend.retract_feedrate                30           # Retract feedrate in mm/sec
-extruder.hotend.retract_recover_length          0            # Additional length for recover
-extruder.hotend.retract_recover_feedrate        30           # Recover feedrate in mm/sec (should be less than retract feedrate)
-extruder.hotend.retract_zlift_length            0.0          # Z-lift on retract in mm, 0 disables
-extruder.hotend.retract_zlift_feedrate          3000         # Z-lift feedrate in mm/min
-
-delta_current                                   0.5          # Extruder stepper motor current
 
 
 # Temperature control
