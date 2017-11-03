@@ -63,7 +63,7 @@ gamma_max_rate                               3000            # Maximum rate in m
 delta_current                                   0.5          # Extruder stepper motor current
 
 extruder.hotend.enable                          true
-extruder.hotend.steps_per_mm                    2600         # Steps per mm for the extruder stepper
+extruder.hotend.steps_per_mm                    2708         # Steps per mm for the extruder stepper
 extruder.hotend.default_feed_rate               600          # Default rate (mm/min) for moves where only the extruder moves
 extruder.hotend.acceleration                    500          # Acceleration for the stepper motor mm/s^2
 extruder.hotend.max_speed                       100          # Maximum speed in mm/s
