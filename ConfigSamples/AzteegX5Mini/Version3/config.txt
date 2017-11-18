@@ -42,13 +42,13 @@ z_axis_max_speed                             3000            # Maximum speed in 
 alpha_step_pin                               2.1             # Pin for alpha stepper step signal
 alpha_dir_pin                                0.11!           # Pin for alpha stepper direction, add '!' to reverse the direction
 alpha_en_pin                                 0.10            # Pin for alpha enable pin
-alpha_current                                1.8             # X stepper motor current
+alpha_current                                2.0             # X stepper motor current
 alpha_max_rate                               7200            # Maximum rate in mm/min
 
 beta_step_pin                                2.2             # Pin for beta stepper step signal
 beta_dir_pin                                 0.20!           # Pin for beta stepper direction, add '!' to reverse the direction
 beta_en_pin                                  0.19            # Pin for beta enable
-beta_current                                 1.8             # Y stepper motor current
+beta_current                                 2.0             # Y stepper motor current
 beta_max_rate                                7200            # Maxmimum rate in mm/min
 
 gamma_step_pin                               2.3             # Pin for gamma stepper step signal
@@ -65,7 +65,7 @@ delta_current                                   0.5          # Extruder stepper 
 extruder.hotend.enable                          true
 extruder.hotend.steps_per_mm                    2708         # Steps per mm for the extruder stepper
 extruder.hotend.default_feed_rate               600          # Default rate (mm/min) for moves where only the extruder moves
-extruder.hotend.acceleration                    500          # Acceleration for the stepper motor mm/s^2
+extruder.hotend.acceleration                    600          # Acceleration for the stepper motor mm/s^2
 extruder.hotend.max_speed                       100          # Maximum speed in mm/s
 
 extruder.hotend.step_pin                        2.0          # Pin for extruder step signal
