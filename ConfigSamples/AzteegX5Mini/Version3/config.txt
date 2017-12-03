@@ -17,8 +17,8 @@ mm_max_arc_error                             0.01            # The maximum error
 
 # Arm solution configuration : Cartesian robot. Translates mm positions into stepper positions
 
-alpha_steps_per_mm                           800             # Steps per mm for alpha (X) stepper
-beta_steps_per_mm                            800             # Steps per mm for beta (Y) stepper
+alpha_steps_per_mm                           400             # Steps per mm for alpha (X) stepper
+beta_steps_per_mm                            400             # Steps per mm for beta (Y) stepper
 gamma_steps_per_mm                           1600            # Steps per mm for gamma (Z) stepper
 
 
@@ -31,9 +31,9 @@ junction_deviation                           0.001           # See http://smooth
 
 # Cartesian axis speed limits
 
-x_axis_max_speed                             7200            # Maximum speed in mm/min
-y_axis_max_speed                             7200            # Maximum speed in mm/min
-z_axis_max_speed                             3000            # Maximum speed in mm/min
+x_axis_max_speed                             14000           # Maximum speed in mm/min
+y_axis_max_speed                             14000           # Maximum speed in mm/min
+z_axis_max_speed                             3600            # Maximum speed in mm/min
 
 
 # Stepper configuration
@@ -42,25 +42,25 @@ z_axis_max_speed                             3000            # Maximum speed in 
 alpha_step_pin                               2.1             # Pin for alpha stepper step signal
 alpha_dir_pin                                0.11!           # Pin for alpha stepper direction, add '!' to reverse the direction
 alpha_en_pin                                 0.10            # Pin for alpha enable pin
-alpha_current                                1.8             # X stepper motor current
-alpha_max_rate                               7200            # Maximum rate in mm/min
+alpha_current                                1.68            # X stepper motor current
+alpha_max_rate                               14000           # Maximum rate in mm/min
 
 beta_step_pin                                2.2             # Pin for beta stepper step signal
 beta_dir_pin                                 0.20!           # Pin for beta stepper direction, add '!' to reverse the direction
 beta_en_pin                                  0.19            # Pin for beta enable
-beta_current                                 1.8             # Y stepper motor current
-beta_max_rate                                7200            # Maxmimum rate in mm/min
+beta_current                                 1.68            # Y stepper motor current
+beta_max_rate                                14000           # Maxmimum rate in mm/min
 
 gamma_step_pin                               2.3             # Pin for gamma stepper step signal
 gamma_dir_pin                                0.22!           # Pin for gamma stepper direction, add '!' to reverse the direction
 gamma_en_pin                                 0.21            # Pin for gamma enable
-gamma_current                                1.8             # Z stepper motor current
-gamma_max_rate                               3000            # Maximum rate in mm/min
+gamma_current                                2.0             # Z stepper motor current
+gamma_max_rate                               3600            # Maximum rate in mm/min
 
 
 # Extruder configuration
 
-delta_current                                   0.5          # Extruder stepper motor current
+delta_current                                   0.6          # Extruder stepper motor current
 
 extruder.hotend.enable                          true
 extruder.hotend.steps_per_mm                    2708         # Steps per mm for the extruder stepper
