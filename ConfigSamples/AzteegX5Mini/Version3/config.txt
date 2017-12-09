@@ -31,8 +31,8 @@ junction_deviation                           0.001           # See http://smooth
 
 # Cartesian axis speed limits
 
-x_axis_max_speed                             14000           # Maximum speed in mm/min
-y_axis_max_speed                             14000           # Maximum speed in mm/min
+x_axis_max_speed                             11000           # Maximum speed in mm/min
+y_axis_max_speed                             11000           # Maximum speed in mm/min
 z_axis_max_speed                             3600            # Maximum speed in mm/min
 
 
@@ -81,8 +81,8 @@ temperature_control.module_name.runaway_range                63       # Max is 6
 # Hotend configuration
 
 temperature_control.hotend.enable              true
-temperature_control.hotend.sensor              pt100_e3d
-temperature_control.hotend.e3d_amplifier_pin   1.30
+temperature_control.hotend.thermistor          Semitec
+temperature_control.hotend.thermistor_pin      0.24
 temperature_control.hotend.heater_pin          2.5           # Pin for the thermistor to read
 temperature_control.hotend.set_m_code          104           # M-code to set the temperature for this module
 temperature_control.hotend.set_and_wait_m_code 109           # M-code to set-and-wait for this module
