@@ -150,7 +150,7 @@ beta_fast_homing_rate_mm_s                   50              # Beta/Y  fast homi
 beta_slow_homing_rate_mm_s                   25              # Beta/Y  slow homing feedrate in mm/sec
 beta_homing_retract_mm                       5               # Distance to retract from the endstop after it is hit for beta/Y
 
-gamma_fast_homing_rate_mm_s                  10              # Gamma/Z fast homing feedrate in mm/sec
+gamma_fast_homing_rate_mm_s                  1              # Gamma/Z fast homing feedrate in mm/sec
 gamma_slow_homing_rate_mm_s                  1               # Gamma/Z slow homing feedrate in mm/sec
 gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
