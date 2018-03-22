@@ -121,7 +121,16 @@ switch.fan.output_type                       pwm             # PWM output settab
 
 # Endstops
 
-endstops_enable								 true
+soft_endstop.enable         true
+soft_endstop.x_min          1            # Minimum X position
+soft_endstop.x_max          300          # Maximum X position
+soft_endstop.y_min          1            # Minimum Y position
+soft_endstop.y_max          300          # Maximum Y position
+soft_endstop.z_min          1            # Minimum Z position
+soft_endstop.z_max          350          # Maximum Z position
+soft_endstop.halt           true         # Whether to issue a HALT state when hitting a soft endstop (if false, will just ignore commands that would exceed the limit)
+
+endstops_enable					             true
 
 alpha_min_endstop                            1.24^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 alpha_homing_direction                       home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
@@ -150,7 +159,7 @@ beta_fast_homing_rate_mm_s                   50              # Beta/Y  fast homi
 beta_slow_homing_rate_mm_s                   25              # Beta/Y  slow homing feedrate in mm/sec
 beta_homing_retract_mm                       5               # Distance to retract from the endstop after it is hit for beta/Y
 
-gamma_fast_homing_rate_mm_s                  1              # Gamma/Z fast homing feedrate in mm/sec
+gamma_fast_homing_rate_mm_s                  1               # Gamma/Z fast homing feedrate in mm/sec
 gamma_slow_homing_rate_mm_s                  1               # Gamma/Z slow homing feedrate in mm/sec
 gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
