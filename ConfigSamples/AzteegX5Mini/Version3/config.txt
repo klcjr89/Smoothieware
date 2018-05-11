@@ -5,10 +5,10 @@
 
 # Basic motion configuration
 
-base_stepping_frequency                      120000
+base_stepping_frequency                      100000
 
-default_feed_rate                            4000            # Default speed in mm/min for G1/G2/G3 moves
-default_seek_rate                            4000            # Default speed in mm/min for G0 moves
+default_feed_rate                            3600            # Default speed in mm/min for G1/G2/G3 moves
+default_seek_rate                            3600            # Default speed in mm/min for G0 moves
 mm_per_arc_segment                           0               # Fixed length for line segments that divide arcs, 0 to disable
 mm_per_line_segment                          0               # Cut lines into segments of this size
 mm_max_arc_error                             0.01            # The maximum error for line segments that divide arcs, 0 to disable
@@ -17,9 +17,9 @@ mm_max_arc_error                             0.01            # The maximum error
 
 # Arm solution configuration : Cartesian robot. Translates mm positions into stepper positions
 
-alpha_steps_per_mm                           400             # Steps per mm for alpha (X) stepper
-beta_steps_per_mm                            400             # Steps per mm for beta (Y) stepper
-gamma_steps_per_mm                           1600            # Steps per mm for gamma (Z) stepper
+alpha_steps_per_mm                           160             # Steps per mm for alpha (X) stepper
+beta_steps_per_mm                            160             # Steps per mm for beta (Y) stepper
+gamma_steps_per_mm                           800             # Steps per mm for gamma (Z) stepper
 
 
 # Planner configuration : Look-ahead and acceleration configuration
@@ -31,8 +31,8 @@ junction_deviation                           0.001           # See http://smooth
 
 # Cartesian axis speed limits
 
-x_axis_max_speed                             11000           # Maximum speed in mm/min
-y_axis_max_speed                             11000           # Maximum speed in mm/min
+x_axis_max_speed                             18000           # Maximum speed in mm/min
+y_axis_max_speed                             18000           # Maximum speed in mm/min
 z_axis_max_speed                             3600            # Maximum speed in mm/min
 
 
@@ -42,19 +42,19 @@ z_axis_max_speed                             3600            # Maximum speed in 
 alpha_step_pin                               2.1             # Pin for alpha stepper step signal
 alpha_dir_pin                                0.11!           # Pin for alpha stepper direction, add '!' to reverse the direction
 alpha_en_pin                                 0.10            # Pin for alpha enable pin
-alpha_current                                1.68            # X stepper motor current
-alpha_max_rate                               14000           # Maximum rate in mm/min
+alpha_current                                1.0             # X stepper motor current
+alpha_max_rate                               18000           # Maximum rate in mm/min
 
 beta_step_pin                                2.2             # Pin for beta stepper step signal
 beta_dir_pin                                 0.20!           # Pin for beta stepper direction, add '!' to reverse the direction
 beta_en_pin                                  0.19            # Pin for beta enable
-beta_current                                 1.68            # Y stepper motor current
-beta_max_rate                                14000           # Maxmimum rate in mm/min
+beta_current                                 1.0             # Y stepper motor current
+beta_max_rate                                18000           # Maxmimum rate in mm/min
 
 gamma_step_pin                               2.3             # Pin for gamma stepper step signal
-gamma_dir_pin                                0.22!           # Pin for gamma stepper direction, add '!' to reverse the direction
+gamma_dir_pin                                0.22            # Pin for gamma stepper direction, add '!' to reverse the direction
 gamma_en_pin                                 0.21            # Pin for gamma enable
-gamma_current                                2.0             # Z stepper motor current
+gamma_current                                1.0             # Z stepper motor current
 gamma_max_rate                               3600            # Maximum rate in mm/min
 
 
@@ -73,26 +73,24 @@ extruder.hotend.dir_pin                         0.5!         # Pin for extruder 
 extruder.hotend.en_pin                          0.4          # Pin for extruder enable signal
 
 
-# Temperature control
-
-temperature_control.module_name.runaway_heating_timeout      4088     # Max is 4088 seconds
-temperature_control.module_name.runaway_range                63       # Max is 63°C
-
 # Hotend configuration
 
+# Slice Engineering 500C Thermistor
+
 temperature_control.hotend.enable              true
-temperature_control.hotend.thermistor          Semitec
+temperature_control.hotend.rt_curve            25,500000,150,10480,300,764.4
+temperature_control.hotend.r0                  500000
 temperature_control.hotend.thermistor_pin      0.24
 temperature_control.hotend.heater_pin          2.5           # Pin for the thermistor to read
 temperature_control.hotend.set_m_code          104           # M-code to set the temperature for this module
 temperature_control.hotend.set_and_wait_m_code 109           # M-code to set-and-wait for this module
 temperature_control.hotend.designator          T             # Designator letter for this module
 
-# E3D-v6 with 24V 40W heater into copper heater block
+# E3D-v6 with Slice Engineering 24V 50W heater in copper heater block
 
-temperature_control.hotend.p_factor         35.8497
-temperature_control.hotend.i_factor         2.3431
-temperature_control.hotend.d_factor         137.1251
+temperature_control.hotend.p_factor         41.7
+temperature_control.hotend.i_factor         5.376
+temperature_control.hotend.d_factor         81
 
 # Heated bed configuration
 
@@ -105,9 +103,9 @@ temperature_control.bed.designator             B             # Designator letter
 
 temperature_control.bed.beta                3950
 
-temperature_control.bed.p_factor			167.9245
-temperature_control.bed.i_factor			14.0523
-temperature_control.bed.d_factor			501.6743
+temperature_control.bed.p_factor            145.1
+temperature_control.bed.i_factor            8.558
+temperature_control.bed.d_factor			615
 
 
 # Switch modules
@@ -122,13 +120,13 @@ switch.fan.output_type                       pwm             # PWM output settab
 # Endstops
 
 soft_endstop.enable         true
-soft_endstop.x_min          1            # Minimum X position
-soft_endstop.x_max          300          # Maximum X position
-soft_endstop.y_min          1            # Minimum Y position
-soft_endstop.y_max          300          # Maximum Y position
-soft_endstop.z_min          1            # Minimum Z position
-soft_endstop.z_max          350          # Maximum Z position
-soft_endstop.halt           true         # Whether to issue a HALT state when hitting a soft endstop (if false, will just ignore commands that would exceed the limit)
+soft_endstop.x_min          0            # Minimum X position
+soft_endstop.x_max          220          # Maximum X position
+soft_endstop.y_min          0            # Minimum Y position
+soft_endstop.y_max          220          # Maximum Y position
+soft_endstop.z_min          0            # Minimum Z position
+soft_endstop.z_max          250          # Maximum Z position
+soft_endstop.halt           false        # Whether to issue a HALT state when hitting a soft endstop (if false, will just ignore commands that would exceed the limit)
 
 endstops_enable					             true
 
@@ -140,14 +138,13 @@ beta_min_endstop                             1.26^           # Pin to read min e
 beta_homing_direction                        home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 beta_min                                     0               # This gets loaded as the current position after homing when home_to_min is set
 
-gamma_min_endstop                            1.28!^          # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
+gamma_min_endstop                            1.28^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 gamma_homing_direction                       home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 gamma_min                                    0               # This gets loaded as the current position after homing when home_to_min is set
-gamma_max                                    200             # This gets loaded as the current position after homing when home_to_max is set
 
-alpha_max_travel                             350             # Max travel in mm for alpha/X axis when homing before giving up
-beta_max_travel                              350             # Max travel in mm for beta/Y axis when homing before giving up
-gamma_max_travel                             400             # Max travel in mm for gamma/Z axis when homing before giving up
+alpha_max_travel                             220             # Max travel in mm for alpha/X axis when homing before giving up
+beta_max_travel                              220             # Max travel in mm for beta/Y axis when homing before giving up
+gamma_max_travel                             250             # Max travel in mm for gamma/Z axis when homing before giving up
 
 # Endstops home at their fast feedrate first and once the endstop is triggered they home again at their slow feedrate for accuracy
 
@@ -159,8 +156,8 @@ beta_fast_homing_rate_mm_s                   50              # Beta/Y  fast homi
 beta_slow_homing_rate_mm_s                   25              # Beta/Y  slow homing feedrate in mm/sec
 beta_homing_retract_mm                       5               # Distance to retract from the endstop after it is hit for beta/Y
 
-gamma_fast_homing_rate_mm_s                  1               # Gamma/Z fast homing feedrate in mm/sec
-gamma_slow_homing_rate_mm_s                  1               # Gamma/Z slow homing feedrate in mm/sec
+gamma_fast_homing_rate_mm_s                  20              # Gamma/Z fast homing feedrate in mm/sec
+gamma_slow_homing_rate_mm_s                  5               # Gamma/Z slow homing feedrate in mm/sec
 gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
 
@@ -173,12 +170,12 @@ endstop_debounce_ms                          1               # Uncomment if you 
 
 # Z probe
 
-zprobe.enable                                true
-zprobe.probe_pin                             1.28!^
-zprobe.slow_feedrate                         1               # Probe feed rate in mm/sec
-zprobe.debounce_ms                           1               # Set if noisy
-zprobe.fast_feedrate                         50              # X and Y axes feedrate in mm/sec
-zprobe.probe_height                          2               # How far above the bed to start probing
+#zprobe.enable                                true
+#zprobe.probe_pin                             1.28^
+#zprobe.slow_feedrate                         1               # Probe feed rate in mm/sec
+#zprobe.debounce_ms                           1               # Set if noisy
+#zprobe.fast_feedrate                         50              # X and Y axes feedrate in mm/sec
+#zprobe.probe_height                          2               # How far above the bed to start probing
 
 
 # Leveling strategy
@@ -187,9 +184,9 @@ zprobe.probe_height                          2               # How far above the
 #leveling-strategy.rectangular-grid.do_home             true
 #leveling-strategy.rectangular-grid.save                true
 #leveling-strategy.rectangular-grid.human_readable      true
-#leveling-strategy.rectangular-grid.x_size              300
-#leveling-strategy.rectangular-grid.y_size              300
-#leveling-strategy.rectangular-grid.size                15
+#leveling-strategy.rectangular-grid.x_size              220
+#leveling-strategy.rectangular-grid.y_size              220
+#leveling-strategy.rectangular-grid.size                10
 #leveling-strategy.rectangular-grid.probe_offsets       0,0,0   # Probe offsets for X,Y,Z  (Z should always be 0)
 #leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
 
