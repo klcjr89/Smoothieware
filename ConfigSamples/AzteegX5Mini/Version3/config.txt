@@ -209,7 +209,7 @@ panel.bed_temperature                       70      # Temperature to set bed whe
 
 
 # Custom menus
-# Note: The '_' character gets converted to a space in the menu and commands, | is used to separate multiple commands
+# Note: The '_' character gets converted to a space in the menu and commands, '|' is used to separate multiple commands
 
 custom_menu.filament_change.enable          true
 custom_menu.filament_change.name            Change_Filament
