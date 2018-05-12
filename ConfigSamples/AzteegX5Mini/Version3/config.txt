@@ -26,13 +26,12 @@ gamma_steps_per_mm                           800             # Steps per mm for 
 
 acceleration                                 3000            # Acceleration in mm/s^2
 junction_deviation                           0.001           # See http://smoothieware.org/motion-control#junction-deviation
-#z_acceleration                              10              # Acceleration for Z only moves in mm/s^2, 0 uses acceleration which is the default
-#z_junction_deviation                        0.0             # For Z only moves, -1 uses junction_deviation, zero disables junction_deviation on Z only moves
+
 
 # Cartesian axis speed limits
 
-x_axis_max_speed                             18000           # Maximum speed in mm/min
-y_axis_max_speed                             18000           # Maximum speed in mm/min
+x_axis_max_speed                             30000           # Maximum speed in mm/min
+y_axis_max_speed                             30000           # Maximum speed in mm/min
 z_axis_max_speed                             3600            # Maximum speed in mm/min
 
 
@@ -43,13 +42,13 @@ alpha_step_pin                               2.1             # Pin for alpha ste
 alpha_dir_pin                                0.11!           # Pin for alpha stepper direction, add '!' to reverse the direction
 alpha_en_pin                                 0.10            # Pin for alpha enable pin
 alpha_current                                1.0             # X stepper motor current
-alpha_max_rate                               18000           # Maximum rate in mm/min
+alpha_max_rate                               30000           # Maximum rate in mm/min
 
 beta_step_pin                                2.2             # Pin for beta stepper step signal
 beta_dir_pin                                 0.20!           # Pin for beta stepper direction, add '!' to reverse the direction
 beta_en_pin                                  0.19            # Pin for beta enable
 beta_current                                 1.0             # Y stepper motor current
-beta_max_rate                                18000           # Maxmimum rate in mm/min
+beta_max_rate                                30000           # Maxmimum rate in mm/min
 
 gamma_step_pin                               2.3             # Pin for gamma stepper step signal
 gamma_dir_pin                                0.22            # Pin for gamma stepper direction, add '!' to reverse the direction
@@ -88,9 +87,10 @@ temperature_control.hotend.designator          T             # Designator letter
 
 # E3D-v6 with Slice Engineering 24V 50W heater in copper heater block
 
-temperature_control.hotend.p_factor         41.7
-temperature_control.hotend.i_factor         5.376
-temperature_control.hotend.d_factor         81
+temperature_control.hotend.p_factor            41.7
+temperature_control.hotend.i_factor            5.376
+temperature_control.hotend.d_factor            81
+
 
 # Heated bed configuration
 
@@ -101,11 +101,11 @@ temperature_control.bed.set_m_code             140           # M-code to set the
 temperature_control.bed.set_and_wait_m_code    190           # M-code to set-and-wait for this module
 temperature_control.bed.designator             B             # Designator letter for this module
 
-temperature_control.bed.beta                3950
+temperature_control.bed.beta                   3950
 
-temperature_control.bed.p_factor            145.1
-temperature_control.bed.i_factor            8.558
-temperature_control.bed.d_factor			615
+temperature_control.bed.p_factor               145.1
+temperature_control.bed.i_factor               8.558
+temperature_control.bed.d_factor			   615
 
 
 # Switch modules
@@ -120,75 +120,71 @@ switch.fan.output_type                       pwm             # PWM output settab
 # Endstops
 
 soft_endstop.enable         true
-soft_endstop.x_min          0            # Minimum X position
+soft_endstop.x_min          -15          # Minimum X position
 soft_endstop.x_max          220          # Maximum X position
-soft_endstop.y_min          0            # Minimum Y position
-soft_endstop.y_max          220          # Maximum Y position
+soft_endstop.y_min          -23          # Minimum Y position
+soft_endstop.y_max          210          # Maximum Y position
 soft_endstop.z_min          0            # Minimum Z position
 soft_endstop.z_max          250          # Maximum Z position
-soft_endstop.halt           false        # Whether to issue a HALT state when hitting a soft endstop (if false, will just ignore commands that would exceed the limit)
+soft_endstop.halt           false        # Whether to issue a HALT state when hitting a soft endstop
 
 endstops_enable					             true
 
 alpha_min_endstop                            1.24^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 alpha_homing_direction                       home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
-alpha_min                                    0               # This gets loaded as the current position after homing when home_to_min is set
+alpha_min                                    -15             # This gets loaded as the current position after homing when home_to_min is set
 
 beta_min_endstop                             1.26^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 beta_homing_direction                        home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
-beta_min                                     0               # This gets loaded as the current position after homing when home_to_min is set
+beta_min                                     -23             # This gets loaded as the current position after homing when home_to_min is set
 
 gamma_min_endstop                            1.28^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 gamma_homing_direction                       home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 gamma_min                                    0               # This gets loaded as the current position after homing when home_to_min is set
 
-alpha_max_travel                             220             # Max travel in mm for alpha/X axis when homing before giving up
-beta_max_travel                              220             # Max travel in mm for beta/Y axis when homing before giving up
-gamma_max_travel                             250             # Max travel in mm for gamma/Z axis when homing before giving up
+alpha_max_travel                             250             # Max travel in mm for alpha/X axis when homing before giving up
+beta_max_travel                              250             # Max travel in mm for beta/Y axis when homing before giving up
+gamma_max_travel                             270             # Max travel in mm for gamma/Z axis when homing before giving up
 
 # Endstops home at their fast feedrate first and once the endstop is triggered they home again at their slow feedrate for accuracy
 
 alpha_fast_homing_rate_mm_s                  50              # Alpha/X fast homing feedrate in mm/sec
-alpha_slow_homing_rate_mm_s                  25              # Alpha/X slow homing feedrate in mm/sec
+alpha_slow_homing_rate_mm_s                  20              # Alpha/X slow homing feedrate in mm/sec
 alpha_homing_retract_mm                      5               # Distance to retract from the endstop after it is hit for alpha/X
 
 beta_fast_homing_rate_mm_s                   50              # Beta/Y  fast homing feedrate in mm/sec
-beta_slow_homing_rate_mm_s                   25              # Beta/Y  slow homing feedrate in mm/sec
+beta_slow_homing_rate_mm_s                   20              # Beta/Y  slow homing feedrate in mm/sec
 beta_homing_retract_mm                       5               # Distance to retract from the endstop after it is hit for beta/Y
 
 gamma_fast_homing_rate_mm_s                  20              # Gamma/Z fast homing feedrate in mm/sec
 gamma_slow_homing_rate_mm_s                  5               # Gamma/Z slow homing feedrate in mm/sec
 gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
-
-# Optional order in which axes will home, default is they all home at the same time
-# If this is set it will force each axis to home one at a time in the specified order
-
-homing_order                                 XYZ             # X, followed by Y, then Z last
 endstop_debounce_ms                          1               # Uncomment if you get noise on your endstops. Default is a 1 millisecond debounce
 
 
 # Z probe
 
-#zprobe.enable                                true
-#zprobe.probe_pin                             1.28^
-#zprobe.slow_feedrate                         1               # Probe feed rate in mm/sec
-#zprobe.debounce_ms                           1               # Set if noisy
-#zprobe.fast_feedrate                         50              # X and Y axes feedrate in mm/sec
-#zprobe.probe_height                          2               # How far above the bed to start probing
+zprobe.enable                                true
+zprobe.probe_pin                             1.28^
+zprobe.slow_feedrate                         5               # Probe feed rate in mm/sec
+zprobe.return_feedrate                       20              # Probe return feed rate in mm/sec
+zprobe.debounce_ms                           1               # Set if noisy
+zprobe.fast_feedrate                         500             # X and Y axes feedrate in mm/sec
+zprobe.probe_height                          10              # How far above the bed to start probing
 
 
 # Leveling strategy
 
-#leveling-strategy.rectangular-grid.enable              true
-#leveling-strategy.rectangular-grid.do_home             true
-#leveling-strategy.rectangular-grid.save                true
-#leveling-strategy.rectangular-grid.human_readable      true
-#leveling-strategy.rectangular-grid.x_size              220
-#leveling-strategy.rectangular-grid.y_size              220
-#leveling-strategy.rectangular-grid.size                10
-#leveling-strategy.rectangular-grid.probe_offsets       0,0,0   # Probe offsets for X,Y,Z  (Z should always be 0)
-#leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
+leveling-strategy.rectangular-grid.enable              true
+leveling-strategy.rectangular-grid.do_home             true
+leveling-strategy.rectangular-grid.x_size              220
+leveling-strategy.rectangular-grid.y_size              210
+leveling-strategy.rectangular-grid.size                9       # Must be an odd number
+leveling-strategy.rectangular-grid.probe_offsets       0,0,0   # Probe offsets for X,Y,Z  (Z should always be 0)
+leveling-strategy.rectangular-grid.initial_height      10      # Move to Z10 before the first probe
+#leveling-strategy.rectangular-grid.dampening_start    0.5     # Algorithm will be applied less and less from this height onwards
+#leveling-strategy.rectangular-grid.height_limit       1       # Algorithm will stop applying compensation from this point onwards
 
 # LCD panel
 
@@ -203,7 +199,6 @@ panel.click_button_pin                      3.26!^
 panel.buzz_pin                              1.31
 
 panel.encoder_resolution                    4
-panel.menu_offset                           0
 
 panel.alpha_jog_feedrate                    3600    # X axis jogging feedrate in mm/min
 panel.beta_jog_feedrate                     3600    # Y axis jogging feedrate in mm/min
@@ -254,7 +249,6 @@ network.ip_address                          auto             # Use DHCP to get t
 
 uart0.baud_rate                             115200           # Baud rate for the default hardware (UART) serial port
 
-second_usb_serial_enable                    false            # This enables a second USB serial port
 leds_disable                                true             # Disable using LEDs after the config is loaded
 play_led_disable                            true             # Disable the play LED
 
