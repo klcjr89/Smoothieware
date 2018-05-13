@@ -28,8 +28,8 @@ junction_deviation                           0.001           # See http://smooth
 
 # Cartesian axis speed limits
 
-x_axis_max_speed                             30000           # Maximum speed in mm/min
-y_axis_max_speed                             30000           # Maximum speed in mm/min
+x_axis_max_speed                             18000           # Maximum speed in mm/min
+y_axis_max_speed                             18000           # Maximum speed in mm/min
 z_axis_max_speed                             3600            # Maximum speed in mm/min
 
 
@@ -40,13 +40,13 @@ alpha_step_pin                               2.1             # Pin for alpha ste
 alpha_dir_pin                                0.11!           # Pin for alpha stepper direction, add '!' to reverse the direction
 alpha_en_pin                                 0.10            # Pin for alpha enable pin
 alpha_current                                1.0             # X stepper motor current
-alpha_max_rate                               30000           # Maximum rate in mm/min
+alpha_max_rate                               18000           # Maximum rate in mm/min
 
 beta_step_pin                                2.2             # Pin for beta stepper step signal
 beta_dir_pin                                 0.20!           # Pin for beta stepper direction, add '!' to reverse the direction
 beta_en_pin                                  0.19            # Pin for beta enable
 beta_current                                 1.0             # Y stepper motor current
-beta_max_rate                                30000           # Maxmimum rate in mm/min
+beta_max_rate                                18000           # Maxmimum rate in mm/min
 
 gamma_step_pin                               2.3             # Pin for gamma stepper step signal
 gamma_dir_pin                                0.22            # Pin for gamma stepper direction, add '!' to reverse the direction
@@ -164,7 +164,7 @@ zprobe.probe_pin                             1.28^
 zprobe.slow_feedrate                         5               # Probe feed rate in mm/sec
 zprobe.return_feedrate                       20              # Probe return feed rate in mm/sec
 zprobe.debounce_ms                           1               # Set if noisy
-zprobe.fast_feedrate                         500             # X and Y axes feedrate in mm/sec
+zprobe.fast_feedrate                         300             # X and Y axes feedrate in mm/sec
 zprobe.probe_height                          5               # How far above the bed to start probing
 
 
