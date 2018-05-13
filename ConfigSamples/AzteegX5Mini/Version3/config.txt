@@ -9,7 +9,7 @@ base_stepping_frequency                      100000
 
 default_feed_rate                            3600            # Default speed in mm/min for G1/G2/G3 moves
 default_seek_rate                            3600            # Default speed in mm/min for G0 moves
-mm_per_line_segment                          1               # Cut lines into segments of this size
+mm_per_line_segment                          1               # Cut lines into segments of this size. REQUIRED for leveling!
 
 
 # Arm solution configuration : Cartesian robot. Translates mm positions into stepper positions
@@ -138,7 +138,6 @@ beta_min                                     -23             # This gets loaded 
 gamma_min_endstop                            1.28^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 gamma_homing_direction                       home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 gamma_min                                    0               # This gets loaded as the current position after homing when home_to_min is set
-gamma_max                                    250             # REQUIRED for probing!
 
 alpha_max_travel                             250             # Max travel in mm for alpha/X axis when homing before giving up
 beta_max_travel                              250             # Max travel in mm for beta/Y axis when homing before giving up
