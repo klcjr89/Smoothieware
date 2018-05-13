@@ -121,8 +121,6 @@ soft_endstop.x_min          -15          # Minimum X position
 soft_endstop.x_max          220          # Maximum X position
 soft_endstop.y_min          -23          # Minimum Y position
 soft_endstop.y_max          210          # Maximum Y position
-soft_endstop.z_min          -5           # Minimum Z position
-soft_endstop.z_max          250          # Maximum Z position
 soft_endstop.halt           false        # Whether to issue a HALT state when hitting a soft endstop
 
 endstops_enable					             true
