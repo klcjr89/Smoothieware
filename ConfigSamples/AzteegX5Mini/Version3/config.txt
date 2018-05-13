@@ -124,6 +124,7 @@ soft_endstop.y_max          210          # Maximum Y position
 soft_endstop.halt           false        # Whether to issue a HALT state when hitting a soft endstop
 
 endstops_enable					             true
+move_to_origin_after_home                    true
 
 alpha_min_endstop                            1.24^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 alpha_homing_direction                       home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
