@@ -749,6 +749,25 @@ void Endstops::home(axis_bitmap_t a)
 void Endstops::process_home_command(Gcode* gcode)
 {
     // First wait for the queue to be empty
+	
+	char buf1[32];
+	int n1 = snprintf(buf1, sizeof(buf1), "G91");
+	string g1(buf1, n1);
+	Gcode gc1(g1, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc1);
+	
+	char buf2[32];
+	int n2 = snprintf(buf2, sizeof(buf2), "G1 Z5 F1200");
+	string g2(buf2, n2);
+	Gcode gc2(g2, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc2);
+	
+	char buf3[32];
+	int n3 = snprintf(buf3, sizeof(buf3), "G90");
+	string g3(buf3, n3);
+	Gcode gc3(g3, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc3);
+	
     THECONVEYOR->wait_for_idle();
 
     // turn off any compensation transform so Z does not move as XY home

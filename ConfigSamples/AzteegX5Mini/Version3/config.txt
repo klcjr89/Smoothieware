@@ -124,7 +124,7 @@ soft_endstop.x_min          -15          # Minimum X position
 soft_endstop.x_max          220          # Maximum X position
 soft_endstop.y_min          -23          # Minimum Y position
 soft_endstop.y_max          210          # Maximum Y position
-soft_endstop.z_min          0            # Minimum Z position
+soft_endstop.z_min          -5           # Minimum Z position
 soft_endstop.z_max          250          # Maximum Z position
 soft_endstop.halt           false        # Whether to issue a HALT state when hitting a soft endstop
 
@@ -141,6 +141,7 @@ beta_min                                     -23             # This gets loaded 
 gamma_min_endstop                            1.28^           # Pin to read min endstop, add a ! to invert if endstop is NO connected to ground
 gamma_homing_direction                       home_to_min     # Or set to home_to_max and set alpha_max and uncomment the alpha_max_endstop
 gamma_min                                    0               # This gets loaded as the current position after homing when home_to_min is set
+gamma_max                                    250             # REQUIRED for probing!
 
 alpha_max_travel                             250             # Max travel in mm for alpha/X axis when homing before giving up
 beta_max_travel                              250             # Max travel in mm for beta/Y axis when homing before giving up
@@ -150,18 +151,18 @@ gamma_max_travel                             270             # Max travel in mm 
 
 alpha_fast_homing_rate_mm_s                  50              # Alpha/X fast homing feedrate in mm/sec
 alpha_slow_homing_rate_mm_s                  20              # Alpha/X slow homing feedrate in mm/sec
-alpha_homing_retract_mm                      5               # Distance to retract from the endstop after it is hit for alpha/X
+alpha_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for alpha/X
 
-beta_fast_homing_rate_mm_s                   50              # Beta/Y  fast homing feedrate in mm/sec
-beta_slow_homing_rate_mm_s                   20              # Beta/Y  slow homing feedrate in mm/sec
-beta_homing_retract_mm                       5               # Distance to retract from the endstop after it is hit for beta/Y
+beta_fast_homing_rate_mm_s                   50              # Beta/Y fast homing feedrate in mm/sec
+beta_slow_homing_rate_mm_s                   20              # Beta/Y slow homing feedrate in mm/sec
+beta_homing_retract_mm                       2               # Distance to retract from the endstop after it is hit for beta/Y
 
 gamma_fast_homing_rate_mm_s                  20              # Gamma/Z fast homing feedrate in mm/sec
 gamma_slow_homing_rate_mm_s                  5               # Gamma/Z slow homing feedrate in mm/sec
 gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
 endstop_debounce_ms                          1               # Uncomment if you get noise on your endstops. Default is a 1 millisecond debounce
-
+homing_order                                 XYZ             # X followed by Y followed by Z
 
 # Z probe
 
@@ -171,7 +172,7 @@ zprobe.slow_feedrate                         5               # Probe feed rate i
 zprobe.return_feedrate                       20              # Probe return feed rate in mm/sec
 zprobe.debounce_ms                           1               # Set if noisy
 zprobe.fast_feedrate                         500             # X and Y axes feedrate in mm/sec
-zprobe.probe_height                          10              # How far above the bed to start probing
+zprobe.probe_height                          5               # How far above the bed to start probing
 
 
 # Leveling strategy
@@ -180,9 +181,9 @@ leveling-strategy.rectangular-grid.enable              true
 leveling-strategy.rectangular-grid.do_home             true
 leveling-strategy.rectangular-grid.x_size              220
 leveling-strategy.rectangular-grid.y_size              210
-leveling-strategy.rectangular-grid.size                9       # Must be an odd number
+leveling-strategy.rectangular-grid.size                7       # Must be an odd number
 leveling-strategy.rectangular-grid.probe_offsets       0,0,0   # Probe offsets for X,Y,Z  (Z should always be 0)
-leveling-strategy.rectangular-grid.initial_height      10      # Move to Z10 before the first probe
+leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
 #leveling-strategy.rectangular-grid.dampening_start    0.5     # Algorithm will be applied less and less from this height onwards
 #leveling-strategy.rectangular-grid.height_limit       1       # Algorithm will stop applying compensation from this point onwards
 
