@@ -162,7 +162,6 @@ gamma_slow_homing_rate_mm_s                  5               # Gamma/Z slow homi
 gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
 endstop_debounce_ms                          1               # Uncomment if you get noise on your endstops. Default is a 1 millisecond debounce
-homing_order                                 XYZ             # X followed by Y followed by Z
 
 # Z probe
 
