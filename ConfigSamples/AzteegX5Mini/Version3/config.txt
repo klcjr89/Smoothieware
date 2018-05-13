@@ -3,6 +3,7 @@
 # Azteeg X5 Mini V3 configuration
 # Note: Lines must not exceed 132 characters and '#' characters mean what follows is ignored
 
+
 # Basic motion configuration
 
 base_stepping_frequency                      100000
@@ -141,8 +142,6 @@ alpha_max_travel                             250             # Max travel in mm 
 beta_max_travel                              250             # Max travel in mm for beta/Y axis when homing before giving up
 gamma_max_travel                             270             # Max travel in mm for gamma/Z axis when homing before giving up
 
-# Endstops home at their fast feedrate first and once the endstop is triggered they home again at their slow feedrate for accuracy
-
 alpha_fast_homing_rate_mm_s                  50              # Alpha/X fast homing feedrate in mm/sec
 alpha_slow_homing_rate_mm_s                  20              # Alpha/X slow homing feedrate in mm/sec
 alpha_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for alpha/X
@@ -156,6 +155,7 @@ gamma_slow_homing_rate_mm_s                  5               # Gamma/Z slow homi
 gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
 endstop_debounce_ms                          1               # Uncomment if you get noise on your endstops. Default is a 1 millisecond debounce
+
 
 # Z probe
 
@@ -179,6 +179,7 @@ leveling-strategy.rectangular-grid.probe_offsets       0,0,0   # Probe offsets f
 leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
 #leveling-strategy.rectangular-grid.dampening_start    0.5     # Algorithm will be applied less and less from this height onwards
 #leveling-strategy.rectangular-grid.height_limit       1       # Algorithm will stop applying compensation from this point onwards
+
 
 # LCD panel
 
@@ -242,7 +243,6 @@ network.ip_address                          auto             # Use DHCP to get t
 # For communication over the UART port, not the USB/serial port
 
 uart0.baud_rate                             115200           # Baud rate for the default hardware (UART) serial port
-
 leds_disable                                true             # Disable using LEDs after the config is loaded
 play_led_disable                            true             # Disable the play LED
 
