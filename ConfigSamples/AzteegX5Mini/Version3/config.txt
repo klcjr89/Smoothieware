@@ -9,11 +9,8 @@ base_stepping_frequency                      100000
 
 default_feed_rate                            3600            # Default speed in mm/min for G1/G2/G3 moves
 default_seek_rate                            3600            # Default speed in mm/min for G0 moves
-mm_per_arc_segment                           0               # Fixed length for line segments that divide arcs, 0 to disable
-mm_per_line_segment                          0               # Cut lines into segments of this size
-mm_max_arc_error                             0.01            # The maximum error for line segments that divide arcs, 0 to disable
-															 # Note: it is invalid for both of the above to be set to 0
-															 # if both are used, will use largest segment length based on radius
+mm_per_line_segment                          1               # Cut lines into segments of this size
+
 
 # Arm solution configuration : Cartesian robot. Translates mm positions into stepper positions
 
