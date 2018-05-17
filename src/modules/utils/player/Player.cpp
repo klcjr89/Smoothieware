@@ -361,7 +361,26 @@ void Player::abort_command( string parameters, StreamOutput *stream )
     if(!playing_file && current_file_handler == NULL) {
         stream->printf("Not currently playing\r\n");
         return;
-    }
+	}
+	
+	char buf1[32];
+	int n1 = snprintf(buf1, sizeof(buf1), "M104 S0");
+	string g1(buf1, n1);
+	Gcode gc1(g1, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc1);
+	
+	char buf2[32];
+	int n2 = snprintf(buf2, sizeof(buf2), "M140 S0");
+	string g2(buf2, n2);
+	Gcode gc2(g2, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc2);
+	
+	char buf3[32];
+	int n3 = snprintf(buf3, sizeof(buf3), "M107");
+	string g3(buf3, n3);
+	Gcode gc3(g3, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc3);
+	
     suspended= false;
     playing_file = false;
     played_cnt = 0;
