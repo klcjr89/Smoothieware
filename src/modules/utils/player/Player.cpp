@@ -374,12 +374,18 @@ void Player::abort_command( string parameters, StreamOutput *stream )
 	string g2(buf2, n2);
 	Gcode gc2(g2, &(StreamOutput::NullStream));
 	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc2);
-	
+
 	char buf3[32];
 	int n3 = snprintf(buf3, sizeof(buf3), "M107");
 	string g3(buf3, n3);
 	Gcode gc3(g3, &(StreamOutput::NullStream));
 	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc3);
+	
+	char buf4[32];
+	int n4 = snprintf(buf4, sizeof(buf4), "M117");
+	string g4(buf4, n4);
+	Gcode gc4(g4, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc4);
 	
     suspended= false;
     playing_file = false;
