@@ -645,7 +645,7 @@ void SimpleShell::version_command( string parameters, StreamOutput *stream)
 void SimpleShell::reset_command( string parameters, StreamOutput *stream)
 {
     stream->printf("Rebooting...\r\n");
-	reset_delay_secs = 0; // reboot now
+	reset_delay_secs = 1; // reboot in one second
 }
 
 // go into dfu boot mode
