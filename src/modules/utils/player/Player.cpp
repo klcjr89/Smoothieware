@@ -366,6 +366,30 @@ void Player::abort_command( string parameters, StreamOutput *stream )
         return;
 	}
 	
+	char buf11[32];
+	int n11 = snprintf(buf11, sizeof(buf11), "G91");
+	string g11(buf11, n11);
+	Gcode gc11(g11, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc11);
+	
+	char buf12[32];
+	int n12 = snprintf(buf12, sizeof(buf12), "G1 Z5 F1200");
+	string g12(buf12, n12);
+	Gcode gc12(g12, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc12);
+	
+	char buf13[32];
+	int n13 = snprintf(buf13, sizeof(buf13), "G90");
+	string g13(buf13, n13);
+	Gcode gc13(g13, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc13);
+	
+	char buf14[32];
+	int n14 = snprintf(buf14, sizeof(buf14), "G1 X0 Y210 F7200");
+	string g14(buf14, n14);
+	Gcode gc14(g14, &(StreamOutput::NullStream));
+	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc14);
+	
 	char buf1[32];
 	int n1 = snprintf(buf1, sizeof(buf1), "M104 S0");
 	string g1(buf1, n1);
