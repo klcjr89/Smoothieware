@@ -644,7 +644,7 @@ void SimpleShell::version_command( string parameters, StreamOutput *stream)
 // Reset the system
 void SimpleShell::reset_command( string parameters, StreamOutput *stream)
 {
-    stream->printf("Smoothie out. Peace. Rebooting...\r\n");
+    stream->printf("Rebooting...\r\n");
     reset_delay_secs = 0 // reboot now
 }
 
