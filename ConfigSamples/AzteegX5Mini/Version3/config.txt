@@ -28,8 +28,8 @@ junction_deviation                           0.001           # See http://smooth
 
 # Cartesian axis speed limits
 
-x_axis_max_speed                             7200           # Maximum speed in mm/min
-y_axis_max_speed                             7200           # Maximum speed in mm/min
+x_axis_max_speed                             7200            # Maximum speed in mm/min
+y_axis_max_speed                             7200            # Maximum speed in mm/min
 z_axis_max_speed                             3600            # Maximum speed in mm/min
 
 
@@ -40,13 +40,13 @@ alpha_step_pin                               2.1             # Pin for alpha ste
 alpha_dir_pin                                0.11!           # Pin for alpha stepper direction, add '!' to reverse the direction
 alpha_en_pin                                 0.10            # Pin for alpha enable pin
 alpha_current                                1.0             # X stepper motor current
-alpha_max_rate                               7200           # Maximum rate in mm/min
+alpha_max_rate                               7200            # Maximum rate in mm/min
 
 beta_step_pin                                2.2             # Pin for beta stepper step signal
 beta_dir_pin                                 0.20!           # Pin for beta stepper direction, add '!' to reverse the direction
 beta_en_pin                                  0.19            # Pin for beta enable
 beta_current                                 1.0             # Y stepper motor current
-beta_max_rate                                7200           # Maxmimum rate in mm/min
+beta_max_rate                                7200            # Maxmimum rate in mm/min
 
 gamma_step_pin                               2.3             # Pin for gamma stepper step signal
 gamma_dir_pin                                0.22            # Pin for gamma stepper direction, add '!' to reverse the direction
@@ -122,6 +122,7 @@ soft_endstop.x_min          -25          # Minimum X position
 soft_endstop.x_max          220          # Maximum X position
 soft_endstop.y_min          -23          # Minimum Y position
 soft_endstop.y_max          210          # Maximum Y position
+soft_endstop.z_max          250          # Maximum Z position
 soft_endstop.halt           false        # Whether to issue a HALT state when hitting a soft endstop
 
 endstops_enable					             true
@@ -218,10 +219,6 @@ leave_heaters_on_suspend                    true
 custom_menu.filament_extrude.enable         true
 custom_menu.filament_extrude.name           Extrude_10mm
 custom_menu.filament_extrude.command        G92_E0|G1_E10_F300|G92_E0
-
-custom_menu.save.enable                     true
-custom_menu.save.name                       Save_to_EEPROM
-custom_menu.save.command                    M500
 
 custom_menu.reset.enable                    true
 custom_menu.reset.name                      Reset
