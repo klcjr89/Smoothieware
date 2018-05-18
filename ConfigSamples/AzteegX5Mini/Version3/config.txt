@@ -143,15 +143,15 @@ alpha_max_travel                             250             # Max travel in mm 
 beta_max_travel                              250             # Max travel in mm for beta/Y axis when homing before giving up
 gamma_max_travel                             270             # Max travel in mm for gamma/Z axis when homing before giving up
 
-alpha_fast_homing_rate_mm_s                  50              # Alpha/X fast homing feedrate in mm/sec
+alpha_fast_homing_rate_mm_s                  300             # Alpha/X fast homing feedrate in mm/sec
 alpha_slow_homing_rate_mm_s                  20              # Alpha/X slow homing feedrate in mm/sec
 alpha_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for alpha/X
 
-beta_fast_homing_rate_mm_s                   50              # Beta/Y fast homing feedrate in mm/sec
+beta_fast_homing_rate_mm_s                   300             # Beta/Y fast homing feedrate in mm/sec
 beta_slow_homing_rate_mm_s                   20              # Beta/Y slow homing feedrate in mm/sec
 beta_homing_retract_mm                       2               # Distance to retract from the endstop after it is hit for beta/Y
 
-gamma_fast_homing_rate_mm_s                  20              # Gamma/Z fast homing feedrate in mm/sec
+gamma_fast_homing_rate_mm_s                  60              # Gamma/Z fast homing feedrate in mm/sec
 gamma_slow_homing_rate_mm_s                  5               # Gamma/Z slow homing feedrate in mm/sec
 gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
@@ -163,10 +163,10 @@ endstop_debounce_ms                          1               # Uncomment if you 
 zprobe.enable                                true
 zprobe.probe_pin                             1.28^
 zprobe.slow_feedrate                         5               # Probe feed rate in mm/sec
-zprobe.return_feedrate                       20              # Probe return feed rate in mm/sec
+zprobe.return_feedrate                       60              # Probe return feed rate in mm/sec
 zprobe.debounce_ms                           1               # Set if noisy
 zprobe.fast_feedrate                         300             # X and Y axes feedrate in mm/sec
-zprobe.probe_height                          5               # How far above the bed to start probing
+zprobe.probe_height                          2               # How far above the bed to start probing
 
 
 # Leveling strategy
@@ -177,7 +177,7 @@ leveling-strategy.rectangular-grid.x_size              210
 leveling-strategy.rectangular-grid.y_size              210
 leveling-strategy.rectangular-grid.size                7       # Must be an odd number
 leveling-strategy.rectangular-grid.probe_offsets       25,0,0  # Probe offsets for X,Y,Z  (Z should always be 0)
-leveling-strategy.rectangular-grid.initial_height      5       # Move to Z5 before the first probe
+leveling-strategy.rectangular-grid.initial_height      2       # Move to Z2 before the first probe
 
 
 # LCD panel
@@ -194,9 +194,9 @@ panel.buzz_pin                              1.31
 
 panel.encoder_resolution                    4
 
-panel.alpha_jog_feedrate                    3600    # X axis jogging feedrate in mm/min
-panel.beta_jog_feedrate                     3600    # Y axis jogging feedrate in mm/min
-panel.gamma_jog_feedrate                    1200    # Z axis jogging feedrate in mm/min
+panel.alpha_jog_feedrate                    10800   # X axis jogging feedrate in mm/min
+panel.beta_jog_feedrate                     10800   # Y axis jogging feedrate in mm/min
+panel.gamma_jog_feedrate                    3600    # Z axis jogging feedrate in mm/min
 
 panel.hotend_temperature                    210     # Temperature to set hotend when preheat is selected
 panel.bed_temperature                       70      # Temperature to set bed when preheat is selected
