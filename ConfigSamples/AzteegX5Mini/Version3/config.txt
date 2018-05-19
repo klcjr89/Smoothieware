@@ -119,7 +119,7 @@ switch.fan.output_type                       pwm             # PWM output settab
 
 soft_endstop.enable         true
 soft_endstop.x_min          -25          # Minimum X position
-soft_endstop.x_max          220          # Maximum X position
+soft_endstop.x_max          210          # Maximum X position
 soft_endstop.y_min          -23          # Minimum Y position
 soft_endstop.y_max          210          # Maximum Y position
 soft_endstop.z_max          250          # Maximum Z position
