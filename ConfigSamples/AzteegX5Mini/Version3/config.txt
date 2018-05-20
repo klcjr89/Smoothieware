@@ -30,7 +30,7 @@ junction_deviation                           0.001           # See http://smooth
 
 x_axis_max_speed                             10800           # Maximum speed in mm/min
 y_axis_max_speed                             10800           # Maximum speed in mm/min
-z_axis_max_speed                             3600            # Maximum speed in mm/min
+z_axis_max_speed                             1800            # Maximum speed in mm/min
 
 
 # Stepper configuration
@@ -52,7 +52,7 @@ gamma_step_pin                               2.3             # Pin for gamma ste
 gamma_dir_pin                                0.22            # Pin for gamma stepper direction, add '!' to reverse the direction
 gamma_en_pin                                 0.21            # Pin for gamma enable
 gamma_current                                1.0             # Z stepper motor current
-gamma_max_rate                               3600            # Maximum rate in mm/min
+gamma_max_rate                               1800            # Maximum rate in mm/min
 
 
 # Extruder configuration
@@ -151,7 +151,7 @@ beta_fast_homing_rate_mm_s                   180             # Beta/Y fast homin
 beta_slow_homing_rate_mm_s                   20              # Beta/Y slow homing feedrate in mm/sec
 beta_homing_retract_mm                       2               # Distance to retract from the endstop after it is hit for beta/Y
 
-gamma_fast_homing_rate_mm_s                  60              # Gamma/Z fast homing feedrate in mm/sec
+gamma_fast_homing_rate_mm_s                  30              # Gamma/Z fast homing feedrate in mm/sec
 gamma_slow_homing_rate_mm_s                  5               # Gamma/Z slow homing feedrate in mm/sec
 gamma_homing_retract_mm                      2               # Distance to retract from the endstop after it is hit for gamma/Z
 
@@ -163,7 +163,7 @@ endstop_debounce_ms                          1               # Uncomment if you 
 zprobe.enable                                true
 zprobe.probe_pin                             1.28^
 zprobe.slow_feedrate                         5               # Probe feed rate in mm/sec
-zprobe.return_feedrate                       60              # Probe return feed rate in mm/sec
+zprobe.return_feedrate                       30              # Probe return feed rate in mm/sec
 zprobe.debounce_ms                           1               # Set if noisy
 zprobe.fast_feedrate                         180             # X and Y axes feedrate in mm/sec
 zprobe.probe_height                          2               # How far above the bed to start probing

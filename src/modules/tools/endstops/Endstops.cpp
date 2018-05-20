@@ -757,7 +757,7 @@ void Endstops::process_home_command(Gcode* gcode)
 	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc1);
 	
 	char buf2[32];
-	int n2 = snprintf(buf2, sizeof(buf2), "G1 Z2 F3600");
+	int n2 = snprintf(buf2, sizeof(buf2), "G1 Z2 F1800");
 	string g2(buf2, n2);
 	Gcode gc2(g2, &(StreamOutput::NullStream));
 	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc2);

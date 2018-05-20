@@ -373,7 +373,7 @@ void Player::abort_command( string parameters, StreamOutput *stream )
 	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc11);
 	
 	char buf12[32];
-	int n12 = snprintf(buf12, sizeof(buf12), "G1 Z2 F3600");
+	int n12 = snprintf(buf12, sizeof(buf12), "G1 Z2 F1800");
 	string g12(buf12, n12);
 	Gcode gc12(g12, &(StreamOutput::NullStream));
 	THEKERNEL->call_event(ON_GCODE_RECEIVED, &gc12);
