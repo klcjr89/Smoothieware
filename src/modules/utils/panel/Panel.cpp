@@ -387,7 +387,7 @@ void Panel::idle_processing()
         return;
     }
 
-    if(current_screen == NULL && this->idle_time > 20*4) {
+    if(current_screen == NULL && this->idle_time > 20*1) {
         this->enter_screen(mms->watch_screen);
         return;
     }
