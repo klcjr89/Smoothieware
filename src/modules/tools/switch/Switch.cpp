@@ -164,9 +164,8 @@ void Switch::on_config_reload(void *argument)
         }
 
     } else if(this->output_type == HWPWM) {
-        // default is 20ms = 50Hz
-		// 0.05ms = 20kHz (5/100 = 0.05ms)
-        float p= THEKERNEL->config->value(switch_checksum, this->name_checksum, pwm_period_ms_checksum )->by_default(5/100)->as_number() * 1000.0F; // ms but fractions are allowed
+        // default is 50Hz
+		float p= THEKERNEL->config->value(switch_checksum, this->name_checksum, pwm_period_ms_checksum )->by_default(20)->as_number() * 1000.0F; // ms but fractions are allowed
         this->pwm_pin->period_us(p);
 
         // default is 0% duty cycle
